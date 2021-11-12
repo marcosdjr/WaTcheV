@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/css/register.css" />
+
+    <title>WaTchV</title>
+  </head>
+  <body>
+    <header>
+      <img id="logo-img" src="./img/logo-watchv.png" />
+      <img id="svg-img" src="./img/television-tv-svgrepo-com.svg" />
+    </header>
+    <main>
+      <section id="insert">
+        <h2>Bem-vindo, WaTchVer! Cadastre-se (é bem rápido):</h2>
+
+        <form action="/user" method="POST" fullwidth>
+            <div id="form">
+                <div>
+                    <img id="info-img" src="./img/television-tv-svgrepo-com.svg" />
+                </div>  
+
+                <div id="info-input">
+                    <div class="div-field">
+                        <label for="number">Nome: </label>
+                            <input
+                                type="text"
+                                name="name"
+                                id="name"
+                                placeholder="WaTchVer da Silva"
+                                required
+                            />
+                    </div>
+
+                    <div class="div-field">
+                        <label for="email">E-mail: </label>
+                            <input
+                              type="email"
+                              name="email"
+                              id="email"
+                              placeholder="watchver@watchv.com"
+                              required
+                             />
+                    </div>
+
+                    <div class="div-field">
+                        <label for="password">Senha: </label>
+                            <input
+                              type="text"
+                              name="password"
+                              id="password"
+                              placeholder="wtv#987"
+                              required
+                            />
+                    </div>           
+                </div>
+            </div>
+
+            <button id="register-button" type="submit">Cadastrar</button>
+
+        </form>
+
+        <div id="div-buttons"></div>
+        <!-- <a href="/">  
+          <button class="insert-button">Voltar</button>
+        </a> -->
+      </div>
+      </section>
+    </main>
+    
+    <footer>
+      <p>
+        Esta é uma aplicação de caráter estudantil. Não detemos direitos
+        autorais das imagens, tampouco é utilizada para fins comerciais.
+      </p>
+    </footer>
+    <!-- <script src="./script.js"></script> -->
+
+    
+  </body>
+</html>
