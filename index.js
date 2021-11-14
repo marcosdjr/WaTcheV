@@ -21,3 +21,8 @@ app.get("/register", (req, res) => {
 app.listen(port, () =>
   console.log(`Servidor rodando em http://localhost:${port}`)
 );
+
+app.get("/insert", (req, res) => {
+  res.render("insert");
+});
+
