@@ -7,63 +7,41 @@
 
     <link rel="stylesheet" href="/css/index.css" />
 
-    <title>Pokedex</title>
+    <title>WaTchV</title>
   </head>
   <body>
     <header>
-      <% if(message != "") {  %>
-        <section id="message">
-            <p><%= message %></p> <span id="close">&times;</span>
-        </section>
-      <% }  %>
-      <img src="./img/logo-pdx-3.png" />
+      <img id="logo-img" src="./img/logo-watchv.png" />
+      <img id="svg-img" src="./img/television-tv-svgrepo-com.svg" />
     </header>
     <main>
-      <section>
-        <!-- <div class="div-pkm">
-          <div class="div-img">
-            <img src="./img/logo-pdx-3.png" />
-          </div>
-          <div class="div-field">
-            <h2 for="name">PokéNome:</h2>
-            <h2 for="type">PokéTipo:</h2>
-          </div>
-        </div>
-        <div class="div-pkm">
-            <div class="div-img">
-              <img src="./img/logo-pdx-3.png" />
-            </div>
-            <div class="div-field">
-              <h2 for="name">PokéNome:</h2>
-              <h2 for="type">PokéTipo:</h2>
-            </div>
-          </div>
-          <div class="div-pkm">
-            <div class="div-img">
-              <img src="./img/logo-pdx-3.png" />
-            </div>
-            <div class="div-field">
-              <h2 for="name">PokéNome:</h2>
-              <h2 for="type">PokéTipo:</h2>
-            </div>
-          </div> -->
-          
-          <% pokemon.map ( pkn => { %>
-            <div class="div-pkm">
-              <a href='/detalhes/<%= pkn.number %>'>
-                <div class="div-img">
-                  <img 
-                  src="<%= pkn.image %>" 
-                  alt="<%= pkn.name %>" 
-                  />
-                </div>
-                <div class="div-field">
-                  <h2 for="name"> PokéNome: <%= pkn.name %> </h2>
-                  <h2 for="type"> PokéTipo: <%= pkn.type %> </h2>
-                </div>
+      <section>       
+        <div class="info-movie">
+          <% movie.map ( mve => { %>
+              <a href='/details/<%= mve.title %>'>
+                <div id="movie">
+                  <div id="div-img">
+                    <img 
+                    id="movie-cover"
+                    src="<%= mve.cover %>" 
+                    alt="<%= mve.title %>" 
+                    />
+                  </div>
+                  <div id="div-info">
+                      <div class="content">
+                       <h3 for="title"> <%= mve.title %> </h3>
+                      </div>
+                      <div class="content">  
+                       <h3 for="genre"> Gênero: <%= mve.genre %> </h3>
+                     </div>
+                     <div class="content">
+                       <h3 for="rating"> Nota: <%= mve.rating %> </h3>
+                     </div>
+                  </div>
+              </div>
              </a>           
+             <% }) %>
             </div>
-                <% }) %>
 
       </section>
     </main>
@@ -78,6 +56,6 @@
         autorais das imagens, tampouco é utilizada para fins comerciais.
       </p>
     </footer>
-    <script src="/js/script.js"></script> 
+    <!-- <script src="/js/script.js"></script>  -->
    </body>
 </html>

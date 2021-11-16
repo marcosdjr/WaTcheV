@@ -133,3 +133,7 @@ label {
   color: #4682B4;
   opacity: 1; 
 }
+
+a {
+  text-decoration: none;
+}
