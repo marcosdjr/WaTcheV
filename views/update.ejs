@@ -32,7 +32,7 @@
 
         <% if(movie != null) {  %>
 
-        <h2>Edite seu filme aqui:</h2>
+        <h2>Edite seu filme/série aqui:</h2>
 
         <form action="/update/<%= movie.id %>" method="POST">
           <div id="form">
@@ -44,7 +44,7 @@
                   name="title"
                   id="title"
                   value="<%= movie.title %>"
-                  placeholder="Nome do filme"
+                  placeholder="Nome do filme/série"
                 />
               </div>
 
