@@ -11,63 +11,88 @@
   </head>
   <body>
     <header>
-      <img id="logo-img" src="../img/logo-watchv.png" />
+      <a href="/">
+        <img id="logo-img" src="../img/logo-watchv.png" />
+      </a>
       <img id="svg-img" src="../img/television-tv-svgrepo-com.svg" />
     </header>
     <main>
       <section id="insert">
-        <% movie.map ( mve => { %>
+
+        <% if(message != "") {  %>
+          <section id="message">
+            <p><%= message %></p> 
+              <span id="close">
+                <a href="/">
+                  <img id="close-img" src="../img/cancel.svg" />
+                </a>
+              </span>
+          </section>
+        <% }  %>
+
+        <% if(movie != null) {  %>
 
 
-        <h2><%= mve.title %></h2>
+        <h2><%= movie.title %></h2>
 
         <form action="/moviedetails" method="POST">
           <div id="form">
             <div class="info-input">
              
-              <div class="div-field">
-                <label>Direção: <%= mve.direction %></label>
-              </div>
+                   <div class="div-field">
+                     <label>Direção: <%= movie.direction %></label>
+                   </div>
 
-              <div class="div-field">
-                <label>Lançamento: <%= mve.release %></label>
-              </div>
+                    <div class="div-field">
+                      <label>Lançamento: <%= movie.releasedate %></label>
+                    </div>
 
-              <div class="div-field">
-                <label>Gênero: <%= mve.genre %></label>
-              </div>
+                    <div class="div-field">
+                      <label>Gênero: <%= movie.genre %></label>
+                    </div>
 
-              <div class="div-field">
-                <label>Nota: <%= mve.rating %></label>
-              </div>
+                   <div class="div-field">
+                      <label>Nota: <%= movie.rating %></label>
+                   </div>
 
-              <div class="div-field">
-                <label>Status: <%= mve.status %></label>
-              </div>
+                    <div class="div-field">
+                      <label>Status: <%= movie.status %></label>
+                    </div>
 
               
             </div>
 
-            <div class="info-input" id="info-input-img">
-              <img
-                id="info-img"
-                src="<%= mve.cover %>"
-                alt="<%= mve.title %>"
-              />
-            </div>
+                  <div class="info-input" id="info-input-img">
+                    <img
+                      id="info-img"
+                      src="<%= movie.cover %>"
+                      alt="Imagem não disponível."
+                    />
+                  </div>
           </div>
-        </form>
-
-        <a href=/>
-          <div id="button">
-            <button id="register-button" type="submit">Voltar</button>
+          
+          <div id="div-buttons">
+              <div id="button">
+                <a href="/update/<%= movie.id %>">
+                  <button id="register-button" type="button">Editar</button>
+                </a>
+              </div>
+            
+              <div id="button">
+                <a href="/delete/<%= movie.id %>">
+                  <button class="insert-button" type="button">Apagar</button>
+                </a>
+              </div>
+            
+              <div id="button">
+                <a href=/>
+                  <button class="insert-button" type="button">Voltar</button>
+                </a>
+              </div>
           </div>
-        </a>
-
-        <% }) %>
-
-
+        </form>       
       </section>
+      <% }  %>
     </main>
 
     <footer>
@@ -76,6 +101,6 @@
         autorais das imagens, tampouco é utilizada para fins comerciais.
       </p>
     </footer>
-    <!-- <script src="./script.js"></script> -->
+    <script src="./script.js"></script>
   </body>
 </html>

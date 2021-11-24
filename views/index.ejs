@@ -11,14 +11,27 @@
   </head>
   <body>
     <header>
-      <img id="logo-img" src="./img/logo-watchv.png" />
+      <a href="/">
+        <img id="logo-img" src="../img/logo-watchv.png" />
+      </a>
       <img id="svg-img" src="./img/television-tv-svgrepo-com.svg" />
     </header>
     <main>
-      <section>       
+      <section>
+                
         <div class="info-movie">
+
+          <% if(message != "") {  %>
+            <section id="message">
+                <p><%= message %></p> 
+                <span id="close">
+                  <img id="close-img" src="../img/cancel.svg" />
+                </span>
+            </section>
+          <% }  %>
+
           <% movie.map ( mve => { %>
-              <a href='/details/<%= mve.title %>'>
+              <a href='/details/<%= mve.id %>'>
                 <div id="movie">
                   <div id="div-img">
                     <img 
@@ -28,15 +41,15 @@
                     />
                   </div>
                   <div id="div-info">
-                      <div class="content">
+                      <!-- <div class="content"> -->
                        <h3 for="title"> <%= mve.title %> </h3>
-                      </div>
-                      <div class="content">  
+                      <!-- </div> -->
+                      <!-- <div class="content">   -->
                        <h3 for="genre"> Gênero: <%= mve.genre %> </h3>
-                     </div>
-                     <div class="content">
+                     <!-- </div> -->
+                     <!-- <div class="content"> -->
                        <h3 for="rating"> Nota: <%= mve.rating %> </h3>
-                     </div>
+                     <!-- </div> -->
                   </div>
               </div>
              </a>           
@@ -45,17 +58,25 @@
 
       </section>
     </main>
+
+    
     <div id="div-buttons">
-      <a href=/cadastro>
-        <button class="insert-button" type="submit">Cadastro</button>
+      <a href=/insert>
+        <button class="insert-button" type="button">Cadastrar</button>
       </a>
-      </div>
+    
+      <a href="https://github.com/marcosdjr">
+        <button class="insert-button" type="button">Github</button>
+      </a>
+    </div>
+    
+    
     <footer>
       <p>
         Esta é uma aplicação de caráter estudantil. Não detemos direitos
         autorais das imagens, tampouco é utilizada para fins comerciais.
       </p>
     </footer>
-    <!-- <script src="/js/script.js"></script>  -->
+    <script src="/js/script.js"></script> 
    </body>
 </html>

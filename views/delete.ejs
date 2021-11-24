@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/css/delete.css" />
+
+    <title>WaTchV</title>
+  </head>
+  <body>
+    <header>
+      <a href="/">
+        <img id="logo-img" src="../img/logo-watchv.png" />
+      </a>
+      <img id="svg-img" src="../img/television-tv-svgrepo-com.svg" />
+    </header>
+    <main>
+      <section id="insert">
+
+      <% if(message != "") {  %>
+        <section id="message">
+            <p><%= message %></p> 
+            <span id="close">
+              <a href="/">
+                <img id="close-img" src="../img/cancel.svg" />
+              </a>
+            </span>
+        </section>
+      <% }  %>
+    
+      <% if(movie != null) {  %>
+
+
+
+        <div id="info">
+          <h2>Deseja mesmo excluir o filme/série "<%= movie.title %>"?</h2>
+          <h4> Se sim, clique na lixeira.</h4>
+        </div>
+
+        <div  id="form">
+            
+          <div class="info-input" id="div-img">
+            <form action="/delete/<%= movie.id %>" method="POST">
+              <button type="submit" id="action-img">
+                <img src="../img/trash.svg" id="info-img" />
+              </button>
+            </form>
+          </div>
+                 
+                
+
+          <div class="info-input" id="info-input-img">
+            <img
+              id="info-img"
+              src="<%= movie.cover %>"
+              alt="Imagem não disponível"
+            />
+          </div>
+        </div>
+          
+        <div id="div-buttons">
+            <div id="button">
+              <a href="/update/<%= movie.id %>">
+                <button class="insert-button" id="register-button" type="button">Editar</button>
+              </a>
+            </div>
+            
+            
+            
+            <div id="button">
+                <a href=/>
+                <button class="insert-button" type="button">Início</button>
+                </a>
+            </div>
+        </div>
+        
+        
+        <% }  %>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        Esta é uma aplicação de caráter estudantil. Não detemos direitos
+        autorais das imagens, tampouco é utilizada para fins comerciais.
+      </p>
+    </footer>
+    <script src="./script.js"></script>
+  </body>
+</html>
