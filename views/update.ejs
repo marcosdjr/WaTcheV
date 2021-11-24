@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="/css/insert.css" />
+    <link rel="stylesheet" href="/css/update.css" />
 
     <title>WaTchV</title>
   </head>
@@ -13,8 +13,8 @@
     <header>
       <a href="/">
         <img id="logo-img" src="../img/logo-watchv.png" />
-      </a>
-      <img id="svg-img" src="./img/television-tv-svgrepo-com.svg" />
+      </a>      
+      <img id="svg-img" src="../img/television-tv-svgrepo-com.svg" />
     </header>
     <main>
       <section id="insert">
@@ -23,14 +23,18 @@
           <section id="message">
               <p><%= message %></p> 
               <span id="close">
-                <img id="close-img" src="../img/cancel.svg" />
+                <a href="/">
+                  <img id="close-img" src="../img/cancel.svg" />
+                </a>
               </span>
           </section>
         <% }  %>
 
-        <h2>Cadastre seus filmes aqui:</h2>
+        <% if(movie != null) {  %>
 
-        <form action="/movieinsert" method="POST">
+        <h2>Edite seu filme aqui:</h2>
+
+        <form action="/update/<%= movie.id %>" method="POST">
           <div id="form">
             <div class="info-input" id="info-input-field">
               <div class="div-field">
@@ -39,7 +43,8 @@
                   type="text"
                   name="title"
                   id="title"
-                  placeholder="Nome do filme/série"
+                  value="<%= movie.title %>"
+                  placeholder="Nome do filme"
                 />
               </div>
 
@@ -49,8 +54,8 @@
                   type="text"
                   name="direction"
                   id="direction"
+                  value="<%= movie.direction %>"
                   placeholder="Direção"
-                  
                 />
               </div>
 
@@ -60,15 +65,15 @@
                   type="text"
                   name="releasedate"
                   id="releasedate"
+                  value="<%= movie.releasedate %>"
                   placeholder="01/01/2001"
-                  
                 />
               </div>
 
               <div class="div-field">
                 <label for="genre">Gênero: </label>
                 <select class="select" name="genre" >
-                  <option value="">Gênero</option>
+                  <option value="<%= movie.genre %>"> <%= movie.genre %> </option>
                   <option value="Ação">Ação</option>
                   <option value="Comédia">Comédia</option>
                   <option value="Drama">Drama</option>
@@ -86,7 +91,8 @@
                   name="rating"
                   id="rating"
                   placeholder="Nota de 0 a 5"
-                  
+                  value="<%= movie.rating %>"
+
                   step="1"
                   min="0"
                   max="5"
@@ -96,7 +102,7 @@
               <div class="div-field">
                 <label for="status">Status: </label>
                 <select class="select" name="status" >
-                  <option value="">Status</option>
+                  <option value=" <%= movie.status %> "> <%= movie.status %> </option>
                   <option value="Assistida">Assistida</option>
                   <option value="Não Assistida">Não Assistida</option>
                   <option value="Assistir Depois">Assistir Depois</option>
@@ -109,6 +115,7 @@
                   type="text"
                   name="cover"
                   id="cover"
+                  value="<%= movie.cover %>"
                   placeholder="Link da imagem"
                   
                 />
@@ -116,22 +123,29 @@
             </div>
 
             <div class="info-input" id="info-input-img">
-              <img id="info-img" src="./img/movie.svg" />
+              <img id="info-img" src="<%= movie.cover %>" />
             </div>
           </div>
 
           <div id="div-buttons">
           <div id="button">
-            <button class="insert-button" type="submit">Cadastrar</button>
+            <button class="insert-button" type="submit">Atualizar</button>
+          </div>
+
+          <div id="button">
+            <a href="/delete/<%= movie.id %>">
+              <button class="insert-button" type="button">Apagar</button>
+            </a>
           </div>
 
           <div id="button">
           <a href=/>
-            <button class="insert-button" type="button">Voltar</button>
+            <button class="insert-button" type="button">Início</button>
           </a>
           </div>
           </div>
         </form>
+        <% }  %>
       </section>
     </main>
 
